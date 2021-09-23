@@ -14,15 +14,11 @@
     <div class="table">
       <h2>つぶやき一覧</h2>
       <div class="table__border">
-      <table>
-        <tr v-for="item in tweetLists" :key="item.id">
-          <td><div class="icon"></div></td>
-          <td >{{item.tweet}}</td>
-          <td>
-           <button class="delete" @click="deleteTweet(item.id)">削除</button>
-          </td>
-        </tr>
-      </table>
+        <div class="all-tweet" v-for="item in tweetLists" :key="item.id">
+            <div class="icon"></div>
+            <div class="item">{{item.tweet}}</div>
+            <button class="delete" @click="deleteTweet(item.id)">削除</button>
+      </div>
     </div>
     </div>
   </div>
@@ -86,9 +82,23 @@ export default {
   text-align: center;
 }
 
+.all-tweet {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item {
+  padding: 20px 0;
+}
+
+.table {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .table__border {
   border: 1px solid black;
-  width: 30%;
   padding: 20px;
   margin: 0 auto;
 }
